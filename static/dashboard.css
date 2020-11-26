@@ -7,6 +7,9 @@ body {
   padding-top: 50px;
 }
 
+li{
+  margin: 30px 0;
+}
 
 /*
  * Global add-ons
