@@ -1,0 +1,75 @@
+{%extends "/shared/layout.html" %}
+
+{% block title %}My Profile {% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div>
+			<h2>User profile</h2>
+
+			<p>Welcome {{ member.firstName + ' ' + member.lastName }}</p>
+			<p>
+				Email: {{ member.email }}<br>
+				Member Since: {{member.memberSince}} <br>
+				Address:<br>
+				{{member.street}} <br>
+				{{member.city + ', ' + member.state + ' ' + member.zip}} <br>
+
+			
+			</p>
+			
+		</div>
+
+		<br>
+		<div>
+			<h2>Your Checked Out Books</h2>
+
+			{% if books %}
+
+				<div class="table-responsive">
+					<table class="table table-striped">
+					<thead>
+						<tr>
+						<th>#</th>
+						<th>ISBN</th>
+						<th>Title</th>
+						<th>Authors</th>
+						<th>Genre</th>
+						<th>Branch</th>
+						<th>Due Date</th>
+						<th>Return </th>
+						</tr>
+					</thead>
+					<tbody>
+						{% set count = namespace(value=0) %}
+						{% for book in books %}
+						<tr>
+							<td>{{ book.id }}</td>
+							<td>{{ book.isbn }}</td>
+							<td>{{ book.title }}</td>
+							<td>{{ book.author }}</td>
+							<td>{{ book.genre.capitalize() }}</td>
+							<td>{{ book.branchLocation.capitalize() }}</td>
+							<td>{{ duedates[loop.index-1] }}</td>
+							<td>
+							
+								<form action="/checkin" method="GET">
+									<button type='submit' name='book_id' value='{{book.id}}'>Check In</button>									
+								</form>
+							
+							
+							</td>
+						</tr>
+						{% set count.value = count.value + 1 %}
+						{% endfor %}
+					</tbody>
+					</table>
+				</div>
+			{% else %}
+			
+				<p>No Books You Reserved!</p>
+			{% endif %}
+			
+		</div>
+	</div>
+{% endblock %}
