@@ -47,14 +47,14 @@ Demo App
                 <th>Authors</th>
                 <th>Genre</th>
                 <th>Branch</th>
-                {% if current_user.is_authenticated %}
+                {% if current_user.is_authenticated: %}
                   <th>In Stock</th>
                 {% endif %}
               </tr>
             </thead>
             <tbody>
               
-              {% for book in books %}
+              {% for book in books: %}
                 <tr>
                   <td>{{ book.id }}</td>
                   <td>{{ book.isbn }}</td>
@@ -62,15 +62,29 @@ Demo App
                   <td>{{ book.author }}</td>
                   <td>{{ book.genre.capitalize() }}</td>
                   <td>{{ book.branchLocation.capitalize() }}</td>
-                  {% if current_user.is_authenticated %}
+                  {% if current_user.is_authenticated: %}
                   <td>
-                    {% if available[loop.index-1] == True:  %}
-                        
+                    {% if current_user.role == 'member': %}
+                      
+                      {% if available[loop.index-1] == True:  %}
+                          
                         <form action="/checkout" method="GET">
-                            <button type='submit' name='book_id' value='{{book.id}}'>Available - Check Out</button>
-                            
+                            <button type='submit' name='book_id' value='{{book.id}}'>Available - Check Out</button>                              
                         </form>
-                    {% else %}
+                      {% else %}
+                        Not Available
+                      {% endif %}
+                    {% elif current_user.role == 'employee': %}
+                    
+                      {% if available[loop.index-1] == True:  %}
+                          
+                        <form action="/delete_book" method="GET">
+                            <button type='submit' name='book_id' value='{{book.id}}'>Delete</button>                              
+                        </form>
+                      {% else %}
+                        Not Available
+                      {% endif %}
+                    {% else  %}
                         Not Available
                     {% endif %}
                     
