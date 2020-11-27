@@ -5,3 +5,44 @@
 .welcome h1 {
 	font-size: 3.5em;
 }
+
+
+.form-control {
+	border-radius: 9999px;
+	display: flex;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #378C84;
+	border-color: #378C84;
+	left: 30%;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color:#49A69C;
+    border-color:#49A69C;
+}
+
+a {
+    color: #378C84;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover,a:active {
+    color:#075c54;  
+}
+
+a.button:hover{
+    background:#075c54;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color:#075c54;
+    border-color:#075c54;
+  }
+
+

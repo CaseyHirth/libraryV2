@@ -38,3 +38,15 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.btn-primary{
+  color: #fff;
+  background-color:#378C84;
+  border-color:#378C84;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color:#075c54;
+  border-color:#075c54;
+}
