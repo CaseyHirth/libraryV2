@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SelectField, SelectMultipleField
 from wtforms.validators import InputRequired, Email, Length  
 
+branch_dictionary ={1: 'Pittsburgh', 2: 'Monroeville', 3: 'Cleveland', 4: 'Youngstown'}
+
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[InputRequired(),Email(message='Invalid email')])
     password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
@@ -20,17 +22,13 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired(), Length(min=8, max=80)])
 
 class BookSearchForm(FlaskForm):
-    isbn = StringField('ISBN')
-    title = StringField('Title', validators=[Length(max=100)])
-    author = StringField('Author')
-    genre = SelectMultipleField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help'),('drama', 'Drama')])
-    branchLocation = SelectMultipleField('Library Branch', choices=[('pittsburgh', 'Pittsburgh'), ('monroeville', 'Monroeville'), ('cleveland', 'Cleveland'), ('youngstown', 'Youngstown')])
+    branchLocation = SelectField('Library Branch', choices=[(1, 'Pittsburgh'), (2, 'Monroeville'), (3, 'Cleveland'), (4, 'Youngstown')])
 
 class BookAddForm(FlaskForm):
     isbn = StringField('ISBN', validators=[InputRequired()])
     title = StringField('Title', validators=[Length(max=100)])
     author = StringField('Author', validators=[InputRequired()])
     genre = SelectField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help'),('drama','Drama')], validators=[InputRequired()])
-    branchLocation = SelectField('Library Branch', choices=[('pittsburgh', 'Pittsburgh'), ('monroeville', 'Monroeville'), ('cleveland', 'Cleveland'), ('youngstown', 'Youngstown')], validators=[InputRequired()])
+    branchLocation = SelectField('Library Branch', choices=[(1, 'Pittsburgh'), (2, 'Monroeville'), (3, 'Cleveland'), (4, 'Youngstown')], validators=[InputRequired()])
 
 

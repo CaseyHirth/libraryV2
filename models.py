@@ -76,8 +76,8 @@ class Book(db.Model):
     branchLocation = db.Column(db.String(50))
 
 
-    check_out = db.relationship('CheckOut', backref='borrowed_book')
-    check_in = db.relationship('CheckIn', backref='borrowed_book')
+    check_out = db.relationship('CheckOut', backref='borrowed_book', cascade='all,delete')
+    check_in = db.relationship('CheckIn', backref='borrowed_book', cascade='all,delete')
 
 worksAt = db.Table('works_at',
     db.Column('employee_id', db.Integer, db.ForeignKey('employees.id')),

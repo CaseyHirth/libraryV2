@@ -55,12 +55,12 @@ Demo App
               
               {% for book in books: %}
                 <tr>
-                  <td>{{ book.id }}</td>
-                  <td>{{ book.isbn }}</td>
-                  <td>{{ book.title }}</td>
-                  <td>{{ book.author }}</td>
-                  <td>{{ book.genre.capitalize() }}</td>
-                  <td>{{ book.branchLocation.capitalize() }}</td>
+                  <td>{{ book[0].id }}</td>
+                  <td>{{ book[0].isbn }}</td>
+                  <td>{{ book[0].title }}</td>
+                  <td>{{ book[0].author }}</td>
+                  <td>{{ book[0].genre.capitalize() }}</td>
+                  <td>{{ book[1] }}</td>
                   {% if current_user.is_authenticated: %}
                   <td>
                     {% if current_user.role == 'member': %}
@@ -68,7 +68,7 @@ Demo App
                       {% if available[loop.index-1] == True:  %}
                           
                         <form action="/checkout" method="GET">
-                            <button type='submit' name='book_id' value='{{book.id}}'>Available - Check Out</button>                              
+                            <button type='submit' name='book_id' value='{{book[0].id}}'>Available - Check Out</button>                              
                         </form>
                       {% else %}
                         Not Available
@@ -78,7 +78,7 @@ Demo App
                       {% if available[loop.index-1] == True:  %}
                           
                         <form action="/delete_book" method="GET">
-                            <button type='submit' name='book_id' value='{{book.id}}'>Delete</button>                              
+                            <button type='submit' name='book_id' value='{{book[0].id}}'>Delete</button>                              
                         </form>
                       {% else %}
                         Not Available

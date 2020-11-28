@@ -43,6 +43,7 @@ Demo App
         <h1> Most Popular Genres </h1>
         <div class="table-responsive">
           <table class="table table-striped">
+            <caption>Number of Checkouts by Genre</caption>
             <thead>
               <tr>
                 <td>Genre</td>
@@ -60,6 +61,92 @@ Demo App
             </tbody>
           </table>
       </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <caption>Number of Checkouts by Genre ages less than 18</caption>
+          <thead>
+            <tr>
+              <td>Genre</td>
+              <td>Number of Checkouts</td>
+            </tr>
+          </thead>
+          <tbody>
+              {% for genre in genre_pop_young %}
+                  <tr>
+                      <td>{{ genre[0].capitalize() }}</td>
+                      <td>{{ genre[1] }}</td>
+                  </tr>
+              {% endfor %}
+            
+          </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <caption>Number of Checkouts by Genre in age range 18-40</caption>
+        <thead>
+          <tr>
+            <td>Genre</td>
+            <td>Number of Checkouts</td>
+          </tr>
+        </thead>
+        <tbody>
+            {% for genre in genre_pop_mid %}
+                <tr>
+                    <td>{{ genre[0].capitalize() }}</td>
+                    <td>{{ genre[1] }}</td>
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+      </table>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <caption>Number of Checkouts by Genre in age range 40+</caption>
+      <thead>
+        <tr>
+          <td>Genre</td>
+          <td>Number of Checkouts</td>
+        </tr>
+      </thead>
+      <tbody>
+          {% for genre in genre_pop_older %}
+              <tr>
+                  <td>{{ genre[0].capitalize() }}</td>
+                  <td>{{ genre[1] }}</td>
+              </tr>
+          {% endfor %}
+        
+      </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <caption>Regions by Number of Checkouts</caption>
+    <thead>
+      <tr>
+        <td>Region ID</td>
+        <td>Region Name</td>
+        <td>Number of Checkouts</td>
+      </tr>
+    </thead>
+    <tbody>
+        {% for region in region_by_checkouts %}
+            <tr>
+                <td>{{ region[0] }}</td>
+                <td>{{ region[1] }}</td>
+                <td>{{ region[2] }}</td>
+            </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
 
     </div><!-- /.container -->
 {% endblock %}

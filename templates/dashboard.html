@@ -36,7 +36,7 @@ Dashboard
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="./dashboard/add_book">Stock New Book</a></li>
             <li><a href="./dashboard/report">Reports</a></li>
-            <li><a href="#">Export</a></li>
+            
           </ul>
           
         </div>
@@ -44,8 +44,13 @@ Dashboard
           <h1 class="page-header">Welcome, {{ name }}</h1>
 
           <div class="row placeholders">
+
+            <h4>
+              Total Library Members: {{ total_members }}
+            </h4>
             
           </div>
+
 
           <h2 class="sub-header">Number of Books in Each Branch</h2>
           <div class="table-responsive">

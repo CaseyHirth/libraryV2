@@ -36,6 +36,14 @@ Demo App
 
       <div class="starter-template">
         <h1>Book Search Results </h1>
+
+        <div>
+          <form class="form-signin" method="POST" action="/books">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.branchLocation)  }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Filter</button>
+          </form>
+        </div>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -55,26 +63,42 @@ Demo App
               
               {% for book in books %}
                 <tr>
-                  <td>{{ book.id }}</td>
-                  <td>{{ book.isbn }}</td>
-                  <td>{{ book.title }}</td>
-                  <td>{{ book.author }}</td>
-                  <td>{{ book.genre.capitalize() }}</td>
-                  <td>{{ book.branchLocation.capitalize() }}</td>
-                  {% if current_user.is_authenticated %}
+                  <td>{{ book[0].id }}</td>
+                  <td>{{ book[0].isbn }}</td>
+                  <td>{{ book[0].title }}</td>
+                  <td>{{ book[0].author }}</td>
+                  <td>{{ book[0].genre.capitalize() }}</td>
+                  <td>{{ book[1] }}</td>
+
+                  {% if current_user.is_authenticated: %}
                   <td>
-                    {% if available[loop.index-1] == True:  %}
-                        
+                    {% if current_user.role == 'member': %}
+                      
+                      {% if available[loop.index-1] == True:  %}
+                          
                         <form action="/checkout" method="GET">
-                            <button type='submit' name='book_id' value='{{book.id}}'>Available - Check Out</button>
-                            
+                            <button type='submit' name='book_id' value='{{book[0].id}}'>Available - Check Out</button>                              
                         </form>
-                    {% else %}
+                      {% else %}
+                        Not Available
+                      {% endif %}
+                    {% elif current_user.role == 'employee': %}
+                    
+                      {% if available[loop.index-1] == True:  %}
+                          
+                        <form action="/delete_book" method="GET">
+                            <button type='submit' name='book_id' value='{{book[0].id}}'>Delete</button>                              
+                        </form>
+                      {% else %}
+                        Not Available
+                      {% endif %}
+                    {% else  %}
                         Not Available
                     {% endif %}
                     
                   </td>
                   {% endif %}
+    
                 </tr>
                 
               {% endfor %}
