@@ -8,26 +8,38 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-html {
-  font-family: sans-serif !important;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+body, html {
+    width: 100%;
+    height: 100%;
 }
 
-h1, h2, h3, h4 {
-    -webkit-font-smoothing: antialiased;
+body, h1, h2, h3 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	background:#DDEAEA;
+	
 }
+
 
 .home {
-	background-image: url("/static/images/bg.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 9.5em;
-	background-color:#2c9797;
+	background-color:#DDEAEA;
 }
 
 .book {
 	width: 18rem;
 	display: inline-block;
 	margin-right: 15px;
+}
+
+
+.container-fluid{
+	background-color:#DDEAEA;
+	height: 100%;
+}
+
+a:hover,a:active {
+    color:#075c54;  
 }

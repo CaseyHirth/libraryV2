@@ -9,7 +9,7 @@ class LoginForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     firstName = StringField('First Name', validators=[InputRequired(), Length(min=1, max=50)])
-    lastName = StringField('First Name', validators=[InputRequired(), Length(min=1, max=50)])
+    lastName = StringField('Last Name', validators=[InputRequired(), Length(min=1, max=50)])
     age = IntegerField('Age', validators=[InputRequired()])
     gender = SelectField('Gender', choices=[('m','Man'),('w','Woman'), ('nb', 'Non-binary')], validators=[InputRequired()])
     street = StringField('Street Adress', validators=[InputRequired(), Length(min=1, max=50)])
@@ -23,14 +23,14 @@ class BookSearchForm(FlaskForm):
     isbn = StringField('ISBN')
     title = StringField('Title', validators=[Length(max=100)])
     author = StringField('Author')
-    genre = SelectMultipleField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help')])
+    genre = SelectMultipleField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help'),('drama', 'Drama')])
     branchLocation = SelectMultipleField('Library Branch', choices=[('pittsburgh', 'Pittsburgh'), ('monroeville', 'Monroeville'), ('cleveland', 'Cleveland'), ('youngstown', 'Youngstown')])
 
 class BookAddForm(FlaskForm):
     isbn = StringField('ISBN', validators=[InputRequired()])
     title = StringField('Title', validators=[Length(max=100)])
     author = StringField('Author', validators=[InputRequired()])
-    genre = SelectField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help')], validators=[InputRequired()])
+    genre = SelectField('Genre', choices=[('adventure','Adventure'), ('crime', 'Crime'), ('fantasy', 'Fantasy'), ('horror', 'Horror'), ('memoir', 'Memoir'), ('self-help', 'Self Help'),('drama','Drama')], validators=[InputRequired()])
     branchLocation = SelectField('Library Branch', choices=[('pittsburgh', 'Pittsburgh'), ('monroeville', 'Monroeville'), ('cleveland', 'Cleveland'), ('youngstown', 'Youngstown')], validators=[InputRequired()])
 
 
