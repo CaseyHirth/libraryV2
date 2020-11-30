@@ -7,16 +7,31 @@
 		<div>
 			<h2>User profile</h2>
 
-			<p>Welcome {{ member.firstName + ' ' + member.lastName }}</p>
-			<p>
-				Email: {{ member.email }}<br>
-				Member Since: {{member.memberSince}} <br>
-				Address:<br>
-				{{member.street}} <br>
-				{{member.city + ', ' + member.state + ' ' + member.zip}} <br>
+			<h4>Welcome {{ member.firstName + ' ' + member.lastName }}</h4>
+
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>Email</td>
+							<td>Member Since</td>
+							<td>Address</td>
+						</tr>
+					
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ member.email }}</td>
+							<td>{{member.memberSince}}</td>
+							<td>{{member.street}}<br>{{member.city + ', ' + member.state + ' ' + member.zip}}</td>
+						</tr>
+					</tbody>
+					
+				</table>
+			</div>
 
 			
-			</p>
+
 			
 		</div>
 

@@ -1,5 +1,5 @@
 
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, IntegerField, SelectField, SelectMultipleField
@@ -98,22 +98,6 @@ def checkin():
         return redirect(url_for('access_denied'))
 
         
-
-
-# @app.route('/book_search', methods=['GET', 'POST'])
-# def search():
-#     form = BookSearchForm()
-
-#     if form.validate_on_submit():
-#         isbn = form.isbn.data
-#         title = form.title.data 
-#         author = form.author.data
-#         genre = form.genre.data
-#         branchLocation = form.branchLocation.data 
-#         return redirect(url_for('bookSearchResults', isbn=isbn, title=title, author=author, genre=genre, branchLocation=branchLocation))
-
-#     return render_template('book_search.html', form = form)
-
 
 @app.route('/delete_book', methods=['GET','POST'])
 @login_required
@@ -262,9 +246,12 @@ def addBook():
         newBook = Book(isbn=form.isbn.data, title=form.title.data, author=form.author.data, genre=form.genre.data, branchLocation=form.branchLocation.data)
         db.session.add(newBook)
         db.session.commit()
+        return render_template('add_book.html', form=form, bookAdded=True)
+        
 
 
-    return render_template('add_book.html', form=form)
+
+    return render_template('add_book.html', form=form, bookAdded=False)
 
 @app.route('/access_denied')
 def access_denied():

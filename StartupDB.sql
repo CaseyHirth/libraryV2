@@ -10,7 +10,6 @@ INSERT INTO `library`.`employees` (`id`, `email`, `firstName`, `lastName`, `job_
 INSERT INTO `library`.`employees` (`id`, `email`, `firstName`, `lastName`, `job_id`, `street`, `state`, `city`, `zip`) VALUES ('6', 'johnhine@gmail.com', 'John', 'Hine', '2', '300 Shadow Ln', 'PA', 'Monroeville', '12342');
 INSERT INTO `library`.`employees` (`id`, `email`, `firstName`, `lastName`, `job_id`, `street`, `state`, `city`, `zip`) VALUES ('7', 'normbase@gmail.com', 'Norm', 'Base', '1', '100 Pittsburgh Dr', 'PA', 'Pittsburgh', '15201');
 
-
 INSERT INTO `library`.`users` (`id`, `email`, `password`, `role`) VALUES ('3', 'kch5153@gmail.com', 'sha256$Ck1dOgdj$10dbb8aea269cdcf7b1653b673083fb29914f472c7f7da29c83e93c9db3d8cbb', 'employee');
 
 INSERT INTO `library`.`regions` (`id`, `regionName`, `regionManager`) VALUES ('1', 'South West PA', '1');

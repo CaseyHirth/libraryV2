@@ -11,9 +11,17 @@ Add Book
 
 {% block content %}
 <div class="container">
+  
 
   <form class="form-signin" method="POST" action="/dashboard/add_book">
     <h2 class="form-signin-heading">Add Book</h2>
+
+    {% if bookAdded: %}
+
+    <h3>Book Successfully Added</h3>
+
+    {% endif %}
+    
 
     {{ form.hidden_tag() }}
     {{ wtf.form_field(form.isbn) }}

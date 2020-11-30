@@ -33,9 +33,9 @@ Dashboard
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar list-group">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="./dashboard/add_book">Stock New Book</a></li>
-            <li><a href="./dashboard/report">Reports</a></li>
+            <li class="active h4"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li class="h4"><a href="./dashboard/add_book">Stock New Book</a></li>
+            <li class="h4"><a href="./dashboard/report">Reports</a></li>
             
           </ul>
           
@@ -43,13 +43,19 @@ Dashboard
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Welcome, {{ name }}</h1>
 
+          <br>
+         
+
           <div class="row placeholders">
 
-            <h4>
+            <h4 class="col">
               Total Library Members: {{ total_members }}
             </h4>
             
           </div>
+
+          <br>
+          
 
 
           <h2 class="sub-header">Number of Books in Each Branch</h2>
@@ -80,6 +86,8 @@ Dashboard
               </tbody>
             </table>
           </div>
+
+          <br>
 
           <h2 class="sub-header">Most Active Members</h2>
           <div class="table-responsive">
