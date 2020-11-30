@@ -20,7 +20,7 @@ In order to do this, type: ```source setup.sh``` into the Linux terminal. Make s
 $ source setup.sh
 ```
 
-## Setup the Database
+## Setting up the Database
 ```
 $ python3
 >>>import models
