@@ -14,6 +14,8 @@ $ pip install mysql
 ```
 
 ## Setting up the virtual environment and installing other dependencies
+
+In order to do this, type: ```source setup.sh``` into the Linux terminal. Make sure that you have [Bash shell](https://www.gnu.org/software/bash/manual/html_node/Basic-Installation.html) command configured on your system. 
 ```
 $ source setup.sh
 ```
@@ -36,6 +38,12 @@ $ python3 app.py
 Or  
 ```
 $ python3 flask run
+```
+If you are successful you will see something like:  
+```
+Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+and click the link in your terminal to check if it deployed correctly.
 ```
 ## License 
 
