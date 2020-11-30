@@ -1,11 +1,10 @@
 # Bridges Library System 
-A simple library manangement flask web app
+A simple library management flask web app
 
 ## Requirements
 * Python 3.8
 * [Flask](http://flask.pocoo.org/docs/0.11/)  - Python Based Web Framework Used
 * MySQL database
-* WSGI or similar web service (production only)
 
 ## Installation
 ```
