@@ -1,4 +1,4 @@
-# Bridges library System 
+# Bridges Library System 
 A simple library manangement flask web app
 
 ## Requirements
