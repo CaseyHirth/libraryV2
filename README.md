@@ -1,7 +1,7 @@
 # Bridges library System 
 A simple library manangement flask web app
 
-# Requirements
+## Requirements
 * Python 3.8
 * [Flask](http://flask.pocoo.org/docs/0.11/)  - Python Based Web Framework Used
 * MySQL database
@@ -28,7 +28,6 @@ $ python3
 >>> db.create_all()
 >>> quit() to exit 
 ```
-
 
 ## Starting the Server/Running the app
 ```
