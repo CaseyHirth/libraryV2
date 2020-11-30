@@ -26,8 +26,8 @@ $ python3
 >>>import models
 >>> from app import db
 >>> db.create_all()
->>> quit() to exit 
 ```
+To exit the python prompt, ```type quit()```
 
 ## Starting the Server/Running the app
 ```
