@@ -8,9 +8,10 @@ template_dir = os.path.join(basePath, 'templates')
 
 app = Flask(__name__, template_folder=template_dir)
 app.config['SECRET_KEY'] = 'Thisissupposedtobesecret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Wing1[1[@127.0.0.1:3306/library'
 
-
+app.config['SQL_TRACK_MODIFICATION'] = False
+app.config['SQL_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://bf0cfce4e0806e:1d406a63@us-cdbr-east-02.cleardb.com/heroku_2da5a1a8a39f679'
 
 db = SQLAlchemy(app)
 
@@ -19,5 +20,6 @@ Bootstrap(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
 
 #db = SQLAlchemy(app)
