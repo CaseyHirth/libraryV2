@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = 'Thisissupposedtobesecret'
 
 app.config['SQL_TRACK_MODIFICATION'] = False
 app.config['SQL_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://bf0cfce4e0806e:1d406a63@us-cdbr-east-02.cleardb.com/heroku_2da5a1a8a39f679'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bb0dc590d373e5:673879ca@us-cdbr-east-02.cleardb.com/heroku_6db8787dcb709d9'
 
 db = SQLAlchemy(app)
 
