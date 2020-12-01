@@ -20,7 +20,7 @@ $ source setup.sh
 ```
 
 ## Setting up the Database
-To connect the app to your database using Mysql Workbench or the terminal, make sure you change the ```highlighted lines``` in the app.py file with your d database details:
+To connect the app to your database using Mysql Workbench or the terminal, make sure you change the ```highlighted lines``` in the app.py file with your database details:
 ```
 app.config['SECRET_KEY'] = 'PUT YOUR SECRET CODE HERE'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password/database-name'
