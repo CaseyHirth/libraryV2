@@ -25,6 +25,11 @@ To connect the app to your database using Mysql Workbench or the terminal, make 
 app.config['SECRET_KEY'] = 'PUT YOUR SECRET CODE HERE'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password/database-name'
 ```
+Next add the name of your schema to the StartupDB.sql file and run the query.
+
+Once the SQL query has been run, you can log in to the admin dashboard with email: admin@email.com password: adminadmin
+
+
 ## Starting the Server/Running the app
 ```
 $ python3 run.py

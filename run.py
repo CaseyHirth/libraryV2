@@ -11,13 +11,13 @@ from app import app, db
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from models import Member, Book, User, Employees, CheckOut, CheckIn, Region, Branch
 
-
+# Home page
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-
+# Get the books that are in the library and display
 @app.route('/books',methods=['GET','POST'])
 def books():
     
@@ -49,6 +49,7 @@ def books():
     
     return render_template('books.html', books=books, available=available, form=form, branch_dictionary=branch_dictionary)
 
+# search for a particular title
 @app.route('/books/search')
 def bookSearch():
     title = request.args.get('keyword')  
@@ -69,6 +70,8 @@ def bookSearch():
             return render_template('book_search_results.html', books=books, available=available, branch_dictionary=branch_dictionary)   
     return render_template('book_search_results.html', books=books, branch_dictionary=branch_dictionary)
 
+
+# check out a book
 @app.route('/checkout', methods=['GET'])
 @login_required
 def checkout():
@@ -83,6 +86,7 @@ def checkout():
     else:
         return redirect(url_for('access_denied'))
 
+# check in a book
 @app.route('/checkin', methods=['GET'])
 @login_required
 def checkin():
@@ -98,7 +102,7 @@ def checkin():
         return redirect(url_for('access_denied'))
 
         
-
+# delete a book
 @app.route('/delete_book', methods=['GET','POST'])
 @login_required
 def deleteAbook():
@@ -112,7 +116,7 @@ def deleteAbook():
         return redirect(url_for('access_denied'))
 
 
-
+# log in to the system
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -132,6 +136,8 @@ def login():
 
     return render_template('login.html', form=form)
 
+
+# signup route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
@@ -155,10 +161,11 @@ def signup():
         db.session.commit()
 
         return redirect(url_for('index'))
-        #return '<h1>' + form.username.data + ' ' + form.password.data + ' ' + form.email.data + '</h1>'
+        
 
     return render_template('signup.html', form=form)
 
+# member profile
 @app.route('/profile')
 @login_required
 def profile():
@@ -183,7 +190,7 @@ def profile():
     else:
         return redirect(url_for('access_denied'))
     
-
+# admin dashboard
 @app.route('/dashboard')
 @login_required
 def dashboard():
@@ -205,6 +212,7 @@ def dashboard():
         return render_template('dashboard.html', name=employee.firstName, members=members, books_by_branch = books_by_branch, 
                                 total_books=total_books, total_members=total_members[0])
 
+# admin dashboard aggregate queries
 @app.route('/dashboard/report', methods=['GET'])
 @login_required
 def report():
@@ -235,7 +243,7 @@ def report():
 
     return redirect(url_for('access_denied'))
 
-
+# allows admin to add book to the database
 @app.route('/dashboard/add_book', methods=['GET','POST'])
 @login_required
 def addBook():
@@ -253,10 +261,12 @@ def addBook():
 
     return render_template('add_book.html', form=form, bookAdded=False)
 
+# user has the wrong access role
 @app.route('/access_denied')
 def access_denied():
     return render_template('access_denied.html')        
 
+# logs out current user
 @app.route('/logout')
 @login_required
 def logout():

@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = 'Thisissupposedtobesecret'
 
 app.config['SQL_TRACK_MODIFICATION'] = False
 app.config['SQL_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bb0dc590d373e5:673879ca@us-cdbr-east-02.cleardb.com/heroku_6db8787dcb709d9'
+app.config['SQLALCHEMY_DATABASE_URI'] = ''
 
 db = SQLAlchemy(app)
 
@@ -22,4 +22,3 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 
-#db = SQLAlchemy(app)
