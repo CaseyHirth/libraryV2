@@ -20,17 +20,14 @@ $ source setup.sh
 ```
 
 ## Setting up the Database
-```
-$ python3
->>>import models
->>> from app import db
->>> db.create_all()
-```
-To exit the python prompt, ```type quit()```
+To connect the app to your database using Mysql Workbench or the terminal, make sure you change the ```highlighted lines``` in the app.py file with your d database details:
+
+app.config['SECRET_KEY'] = ```'PUT YOUR SECRET CODE HERE'```
+app.config['SQLALCHEMY_DATABASE_URI'] = ```'mysql+pymysql://username:password/database-name'```
 
 ## Starting the Server/Running the app
 ```
-$ python3 app.py
+$ python3 run.py
 ```
 
 Or  
